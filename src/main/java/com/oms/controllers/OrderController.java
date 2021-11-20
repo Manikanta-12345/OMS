@@ -1,5 +1,7 @@
 package com.oms.controllers;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -23,13 +25,14 @@ public class OrderController {
 		return new ResponseEntity<Order>(order, HttpStatus.CREATED);
 	}
 	@GetMapping(value = "/orderslist")
-	public ResponseEntity<Order> getOrders() {
+	public ResponseEntity<Order> getOrders() throws UnknownHostException {
 		String orderId = UUID.randomUUID().toString();
 		Order order=new Order();
 		order.setOrderId(orderId);
 		order.setItemName("DOLO-650");
 		order.setItemPrice(500);
 		order.setQuantity(2);
+		order.setServer(InetAddress.getLocalHost().toString());
 		return new ResponseEntity<Order>(order, HttpStatus.CREATED);
 	}
 }

@@ -5,6 +5,7 @@ private String itemName;
 private int quantity;
 private double itemPrice;
 private String orderId;
+private String server;
 public String getItemName() {
 	return itemName;
 }
@@ -28,6 +29,12 @@ public String getOrderId() {
 }
 public void setOrderId(String orderId) {
 	this.orderId = orderId;
+}
+public String getServer() {
+	return server;
+}
+public void setServer(String server) {
+	this.server = server;
 }
 
 }
